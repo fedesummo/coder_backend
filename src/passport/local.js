@@ -1,3 +1,4 @@
+import { config } from "../config.js";
 import passport from "passport";
 import { Strategy } from "passport-local";
 import { UsersCollecion } from "../daos/users.js";
@@ -18,7 +19,7 @@ passport.use(
       if (dbUser) {
         return done(null, false);
       }
-      const encryptedPassword = await bcrypt.hash(password, +process.env.SALT_ROUNDS);
+      const encryptedPassword = await bcrypt.hash(password, config.SALT_ROUNDS);
       const newUser = await UsersCollecion.saveDocument({
         email,
         password: encryptedPassword,

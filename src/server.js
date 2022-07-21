@@ -1,4 +1,4 @@
-import "dotenv/config";
+import { config } from "./config.js"
 import express from "express";
 import passport from "./passport/local.js";
 import { router } from "./routes/index.routes.js";
@@ -8,7 +8,7 @@ import { engine } from "express-handlebars";
 
 const app = express();
 
-const { DB_USER, DB_PASSWORD, DB_NAME } = process.env;
+const { DB_USER, DB_PASSWORD, DB_NAME, PORT } = config;
 
 app.use(
   session({
@@ -42,5 +42,4 @@ app.engine(
   })
 );
 
-const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));

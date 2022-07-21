@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node .",
-    "dev": "nodemon ."
+    "dev": "nodemon . -p=4000"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +23,7 @@
     "express-session": "^1.17.3",
     "mongoose": "^6.4.4",
     "passport": "^0.6.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "yargs": "^17.5.1"
   }
 }
